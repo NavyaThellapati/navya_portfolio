@@ -27,7 +27,6 @@ export function ContactSection() {
           <div className="relative mt-8 flex flex-wrap gap-3 lg:mt-0 lg:justify-end">
             <ButtonLink href={`mailto:${email}`}>Email Me</ButtonLink>
             {socialLinks.linkedin ? <ButtonLink href={socialLinks.linkedin} target="_blank" rel="noreferrer" variant="secondary">LinkedIn</ButtonLink> : null}
-            {socialLinks.github ? <ButtonLink href={socialLinks.github} target="_blank" rel="noreferrer" variant="secondary">GitHub</ButtonLink> : null}
             <ButtonLink href={resumeUrl} download variant="secondary">Download Resume</ButtonLink>
             <CopyEmailButton />
           </div>

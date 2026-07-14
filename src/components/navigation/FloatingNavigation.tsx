@@ -1,33 +1,46 @@
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { resumeUrl, socialLinks } from "../../data/portfolioData";
 import { ThemeToggle } from "../ui/ThemeToggle";
-import { SocialLinks } from "../ui/SocialLinks";
 
 const navItems = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
-  { label: "Projects", href: "/#work" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Skills", href: "/#expertise" },
-  { label: "Education", href: "/#education" },
-  { label: "Contact", href: "/#contact" },
+  { label: "About", id: "about" },
+  { label: "Projects", id: "work" },
+  { label: "Experience", id: "experience" },
+  { label: "Skills", id: "expertise" },
+  { label: "Education", id: "education" },
+  { label: "Contact", id: "contact" },
 ];
+
+const scrollToSection = (id: string, attempt = 0) => {
+  window.requestAnimationFrame(() => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
+    if (attempt < 8) {
+      window.setTimeout(() => scrollToSection(id, attempt + 1), 80);
+    }
+  });
+};
 
 export function FloatingNavigation() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
       const current = navItems
-        .map((item) => item.href.split("#")[1])
-        .filter(Boolean)
+        .map((item) => item.id)
         .findLast((id) => {
           const element = document.getElementById(id);
           return element ? element.getBoundingClientRect().top <= 140 : false;
@@ -40,6 +53,12 @@ export function FloatingNavigation() {
   }, [location.pathname]);
 
   useEffect(() => {
+    if (location.pathname !== "/" || !location.hash) return;
+    const id = location.hash.replace("#", "");
+    scrollToSection(id);
+  }, [location.hash, location.pathname]);
+
+  useEffect(() => {
     document.body.classList.toggle("menu-open", open);
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
@@ -50,6 +69,20 @@ export function FloatingNavigation() {
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
+
+  const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
+    event.preventDefault();
+    setOpen(false);
+
+    if (location.pathname !== "/") {
+      window.sessionStorage.setItem("pendingPortfolioSection", id);
+      navigate({ pathname: "/", hash: `#${id}` });
+      return;
+    }
+
+    window.history.replaceState(null, "", `#${id}`);
+    scrollToSection(id);
+  };
 
   return (
     <header className="fixed inset-x-0 top-4 z-50 px-4">
@@ -70,13 +103,13 @@ export function FloatingNavigation() {
         </Link>
         <div className="hidden items-center gap-1 xl:flex">
           {navItems.map((item) => {
-            const id = item.href.split("#")[1];
             return (
-              <Link
+              <a
                 key={item.label}
-                to={item.href}
+                href={`#${item.id}`}
+                onClick={(event) => handleNavClick(event, item.id)}
                 className={`relative rounded-full px-3 py-2 text-sm font-semibold transition ${
-                  active === id && location.pathname === "/"
+                  active === item.id && location.pathname === "/"
                     ? "text-[#FFF9FF] after:absolute after:inset-x-4 after:-bottom-1 after:h-px after:bg-[#F08AB8] after:shadow-[0_0_10px_rgba(217,70,239,0.9)]"
                     : scrolled
                       ? "text-[var(--muted)] hover:text-[var(--text)]"
@@ -84,16 +117,11 @@ export function FloatingNavigation() {
                 }`}
               >
                 {item.label}
-              </Link>
+              </a>
             );
           })}
         </div>
         <div className="hidden items-center gap-3 lg:flex">
-          {socialLinks.github ? (
-            <a href={socialLinks.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="grid h-10 w-10 place-items-center rounded-full border border-transparent text-[#FFF9FF] transition hover:border-[#F08AB8]/40 hover:bg-[#130A20] hover:text-[#F08AB8]">
-              <span className="text-xs font-black">GH</span>
-            </a>
-          ) : null}
           {socialLinks.linkedin ? (
             <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid h-10 w-10 place-items-center rounded-full border border-transparent text-[#FFF9FF] transition hover:border-[#F08AB8]/40 hover:bg-[#130A20] hover:text-[#F08AB8]">
               <span className="text-xs font-black">in</span>
@@ -145,20 +173,24 @@ export function FloatingNavigation() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.04 }}
                 >
-                  <Link
-                    to={item.href}
-                    onClick={() => setOpen(false)}
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(event) => handleNavClick(event, item.id)}
                     className="font-display text-3xl font-bold text-[var(--text)]"
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
             </div>
             <div className="absolute inset-x-5 bottom-8 grid gap-5">
               <div className="flex items-center justify-between">
                 <ThemeToggle />
-                <SocialLinks large />
+                {socialLinks.linkedin ? (
+                  <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid h-12 w-12 place-items-center rounded-full border border-[var(--line)] text-[#FFF9FF]">
+                    <span className="text-sm font-black">in</span>
+                  </a>
+                ) : null}
               </div>
               <a
                 href={resumeUrl}

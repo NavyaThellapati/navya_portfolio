@@ -15,7 +15,6 @@ export function Footer() {
             Email
           </a>
           {socialLinks.linkedin ? <a className="hover:text-[#C4A7FF]" href={socialLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn</a> : null}
-          {socialLinks.github ? <a className="hover:text-[#C4A7FF]" href={socialLinks.github} target="_blank" rel="noreferrer">GitHub</a> : null}
           <button
             type="button"
             className="inline-flex items-center gap-2 hover:text-[#C4A7FF]"

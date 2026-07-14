@@ -13,11 +13,6 @@ export function SocialLinks({ large = false }: { large?: boolean }) {
           <span className="text-xs font-black">in</span>
         </a>
       ) : null}
-      {socialLinks.github ? (
-        <a className={`${base} ${size}`} href={socialLinks.github} aria-label="GitHub" target="_blank" rel="noreferrer">
-          <span className="text-xs font-black">GH</span>
-        </a>
-      ) : null}
       <a className={`${base} ${size}`} href={`mailto:${email}`} aria-label="Email Navya">
         <Mail className="h-5 w-5" />
       </a>
