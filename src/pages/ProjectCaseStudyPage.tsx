@@ -18,25 +18,25 @@ export function ProjectCaseStudyPage({ slug }: { slug: ProjectSlug }) {
 
   return (
     <PageTransition>
-      <section className="dark-surface relative overflow-hidden bg-[var(--bg)] pt-32">
+      <section className="relative overflow-hidden bg-[var(--bg)] pt-32">
         <SectionBackground variant="dark" />
         <div className="section-shell relative grid items-center gap-10 pb-16 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <Link to="/#work" className="inline-flex items-center gap-2 text-sm font-bold text-[#C9A86A]"><ArrowLeft className="h-4 w-4" />Back to work</Link>
-            <Icon className="mt-8 h-12 w-12 text-[#C9A86A]" />
-            <h1 className="mt-5 font-display text-4xl font-bold leading-tight sm:text-6xl">{project.title}</h1>
+            <Link to="/#work" className="inline-flex items-center gap-2 text-sm font-bold text-[#D8BA82]"><ArrowLeft className="h-4 w-4" />Back to work</Link>
+            <Icon className="mt-8 h-12 w-12 text-[#D8BA82]" />
+            <h1 className="mt-5 font-display text-[clamp(2rem,4vw,3.25rem)] font-bold leading-tight">{project.title}</h1>
             <p className="mt-6 text-lg leading-8 text-[var(--muted)]">{project.description}</p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {project.metrics.map((metric) => <span key={metric} className="rounded-full bg-[#C58E9D]/12 px-3 py-1 text-xs font-bold text-[#F6D8DF]">{metric}</span>)}
+              {project.metrics.map((metric) => <span key={metric} className="rounded-full bg-[#D39AA8]/12 px-3 py-1 text-xs font-bold text-[#D8C9D0]">{metric}</span>)}
             </div>
           </div>
           <ProjectMockup slug={project.slug} />
         </div>
       </section>
-      <section className="bg-[var(--bg-soft)] py-20">
+      <section className="bg-[var(--bg)] py-20">
         <div className="section-shell grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
           <aside className="lg:sticky lg:top-28 lg:h-fit">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[var(--plum)]">Case Study</p>
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-[#D8BA82]">Case Study</p>
             <h2 className="mt-3 font-display text-3xl font-bold">Overview</h2>
           </aside>
           <div className="grid gap-6">
@@ -71,7 +71,7 @@ function StudyBlock({ title, items, ordered, tagList }: { title: string; items: 
     return (
       <div className="glass-panel rounded-3xl p-6">
         <h3 className="font-display text-2xl font-bold">{title}</h3>
-        <div className="mt-5 flex flex-wrap gap-2">{items.map((item) => <span key={item} className="rounded-full bg-[#6E426F]/10 px-3 py-1 text-xs font-bold text-[var(--plum)]">{item}</span>)}</div>
+        <div className="mt-5 flex flex-wrap gap-2">{items.map((item) => <span key={item} className="rounded-full bg-[#D39AA8]/12 px-3 py-1 text-xs font-bold text-[#FFF9F3]">{item}</span>)}</div>
       </div>
     );
   }
@@ -81,7 +81,7 @@ function StudyBlock({ title, items, ordered, tagList }: { title: string; items: 
     <div className="glass-panel rounded-3xl p-6">
       <h3 className="font-display text-2xl font-bold">{title}</h3>
       <List className="mt-5 space-y-3 text-[var(--muted)]">
-        {items.map((item) => <li key={item} className="leading-8">{ordered ? null : <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-[var(--plum)] align-middle" />}{item}</li>)}
+        {items.map((item) => <li key={item} className="leading-8">{ordered ? null : <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-[#D8BA82] align-middle" />}{item}</li>)}
       </List>
     </div>
   );

@@ -56,7 +56,7 @@ export function FloatingNavigation() {
         aria-label="Primary navigation"
         className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-4 transition-all duration-300 ${
           scrolled
-            ? "h-16 border-[var(--line)] bg-[var(--surface)] shadow-2xl shadow-[#17151C]/20 backdrop-blur-2xl"
+            ? "h-16 border-[var(--line)] bg-[var(--surface)] shadow-2xl shadow-[#130D12]/20 backdrop-blur-2xl"
             : "h-18 border-transparent bg-transparent"
         }`}
       >
@@ -76,10 +76,10 @@ export function FloatingNavigation() {
                 to={item.href}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                   active === id && location.pathname === "/"
-                    ? "bg-[#6E426F]/18 text-[#F6D8DF]"
+                    ? "bg-[#D39AA8]/16 text-[#FFF9F3]"
                     : scrolled
                       ? "text-[var(--muted)] hover:text-[var(--text)]"
-                      : "text-[#FAF8F4]/72 hover:text-[#FAF8F4]"
+                      : "text-[#FFF9F3]/72 hover:text-[#FFF9F3]"
                 }`}
               >
                 {item.label}
@@ -92,7 +92,7 @@ export function FloatingNavigation() {
           <a
             href={resumeUrl}
             download
-            className="rounded-full bg-gradient-to-r from-[#6E426F] to-[#8A4F62] px-4 py-2 text-sm font-bold text-[#FAF8F4] shadow-lg shadow-[#6E426F]/25 transition hover:-translate-y-0.5 hover:brightness-110"
+            className="rounded-full bg-gradient-to-r from-[#A95F73] to-[#D8BA82] px-4 py-2 text-sm font-bold text-[#241820] shadow-lg shadow-[#130D12]/25 transition hover:-translate-y-0.5 hover:brightness-110"
           >
             Resume
           </a>
@@ -152,7 +152,7 @@ export function FloatingNavigation() {
               <a
                 href={resumeUrl}
                 download
-                className="rounded-full bg-gradient-to-r from-[#6E426F] to-[#8A4F62] px-5 py-4 text-center text-sm font-bold text-[#FAF8F4]"
+                className="rounded-full bg-gradient-to-r from-[#A95F73] to-[#D8BA82] px-5 py-4 text-center text-sm font-bold text-[#241820]"
               >
                 Download Resume
               </a>

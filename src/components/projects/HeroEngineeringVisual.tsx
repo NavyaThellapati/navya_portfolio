@@ -13,7 +13,7 @@ export function HeroEngineeringVisual() {
 
   return (
     <motion.div
-      className="relative mx-auto aspect-[1.05] w-full max-w-[620px] rounded-[40px] border border-[#FAF8F4]/14 bg-[linear-gradient(145deg,rgba(250,248,244,0.14),rgba(250,248,244,0.035))] p-6 shadow-2xl shadow-[#17151C]/40 backdrop-blur-2xl"
+      className="relative mx-auto aspect-[1.05] w-full max-w-[540px] rounded-[40px] border border-[#FFF9F3]/14 bg-[linear-gradient(145deg,rgba(48,33,43,0.94),rgba(66,45,56,0.52))] p-6 shadow-2xl shadow-[#130D12]/34 backdrop-blur-2xl"
       style={reduce ? undefined : { rotateX, rotateY, transformPerspective: 900 }}
       onMouseMove={(event) => {
         if (reduce || window.innerWidth < 900) return;
@@ -30,23 +30,23 @@ export function HeroEngineeringVisual() {
       transition={{ duration: 0.75, delay: 0.25 }}
       aria-label="Animated backend architecture visual with API, database, cloud, and AI service nodes"
     >
-      <div className="absolute inset-0 rounded-[40px] bg-[radial-gradient(circle_at_25%_18%,rgba(197,142,157,0.22),transparent_32%),radial-gradient(circle_at_78%_32%,rgba(139,95,191,0.22),transparent_34%),radial-gradient(circle_at_50%_92%,rgba(201,168,106,0.13),transparent_32%)]" />
+      <div className="absolute inset-0 rounded-[40px] bg-[radial-gradient(circle_at_25%_18%,rgba(211,154,168,0.2),transparent_32%),radial-gradient(circle_at_78%_32%,rgba(170,130,194,0.18),transparent_34%),radial-gradient(circle_at_50%_92%,rgba(216,186,130,0.13),transparent_32%)]" />
       <motion.div
         aria-hidden="true"
-        className="absolute left-10 top-8 h-20 w-20 rounded-3xl border border-[#FAF8F4]/10 bg-[#FAF8F4]/8"
+        className="absolute left-10 top-8 h-20 w-20 rounded-3xl border border-[#FFF9F3]/10 bg-[#FFF9F3]/8"
         animate={reduce ? undefined : { y: [0, -10, 0], opacity: [0.45, 0.8, 0.45] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden="true"
-        className="absolute bottom-12 right-12 h-24 w-24 rounded-full border border-[#C9A86A]/20 bg-[#C9A86A]/8"
+        className="absolute bottom-12 right-12 h-24 w-24 rounded-full border border-[#D8BA82]/20 bg-[#D8BA82]/8"
         animate={reduce ? undefined : { y: [0, 12, 0], x: [0, -8, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <div className="relative h-full">
-        <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-[#FAF8F4]/12 bg-[#FAF8F4]/10 p-5 text-center shadow-2xl shadow-[#17151C]/20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#F6D8DF]">Core</p>
-          <p className="mt-3 font-display text-2xl font-bold text-[#FAF8F4]">API Layer</p>
+        <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-[#FFF9F3]/12 bg-[#30212B]/86 p-5 text-center shadow-2xl shadow-[#130D12]/20">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D39AA8]">Core</p>
+          <p className="mt-3 font-display text-2xl font-bold text-[#FFF9F3]">API Layer</p>
         </div>
         {[
           ["left-0 top-8", "React Client", "user workflows"],
@@ -76,7 +76,7 @@ export function HeroEngineeringVisual() {
               key={d}
               d={d}
               fill="none"
-              stroke="rgba(201,168,106,0.48)"
+              stroke="rgba(216,186,130,0.52)"
               strokeWidth="1.4"
               strokeDasharray="7 12"
               animate={reduce ? undefined : { strokeDashoffset: [0, -38] }}
@@ -84,12 +84,28 @@ export function HeroEngineeringVisual() {
             />
           ))}
         </svg>
+        {!reduce
+          ? [
+              { x: ["14%", "34%", "48%"], y: ["18%", "30%", "42%"], delay: 0 },
+              { x: ["86%", "68%", "53%"], y: ["20%", "32%", "42%"], delay: 0.8 },
+              { x: ["48%", "34%", "15%"], y: ["52%", "67%", "83%"], delay: 1.6 },
+              { x: ["54%", "70%", "84%"], y: ["52%", "68%", "83%"], delay: 2.4 },
+            ].map((particle) => (
+              <motion.span
+                key={particle.delay}
+                className="absolute h-2 w-2 rounded-full bg-[#D8BA82] shadow-[0_0_18px_rgba(216,186,130,0.75)]"
+                style={{ left: particle.x[0], top: particle.y[0] }}
+                animate={{ left: particle.x, top: particle.y, opacity: [0, 1, 0] }}
+                transition={{ duration: 2.8, delay: particle.delay, repeat: Infinity, ease: "easeInOut" }}
+              />
+            ))
+          : null}
       </div>
       <div className="absolute inset-x-6 bottom-6 flex flex-wrap justify-center gap-2">
         {labels.map((label, index) => (
           <motion.span
             key={label}
-            className="rounded-full border border-[#FAF8F4]/12 bg-[#FAF8F4]/10 px-3 py-1 text-xs font-semibold text-[#FAF8F4] shadow-lg shadow-[#6E426F]/15"
+            className="rounded-full border border-[#FFF9F3]/12 bg-[#30212B]/88 px-3 py-1 text-xs font-semibold text-[#FFF9F3] shadow-lg shadow-[#130D12]/15"
             animate={reduce ? undefined : { opacity: [0.58, 1, 0.58] }}
             transition={{ duration: 4.5, delay: index * 0.25, repeat: Infinity }}
           >
@@ -116,14 +132,14 @@ function Node({
 }) {
   return (
     <motion.div
-      className={`absolute z-10 w-40 rounded-3xl border border-[#FAF8F4]/18 bg-[#211C29]/92 p-4 shadow-xl shadow-[#17151C]/30 backdrop-blur ${className}`}
+      className={`absolute z-10 w-40 rounded-3xl border border-[#FFF9F3]/18 bg-[#30212B]/94 p-4 shadow-xl shadow-[#130D12]/30 backdrop-blur ${className}`}
       initial={{ opacity: 0, scale: 0.82, y: 18 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.45, delay }}
     >
-      <span className={`mb-3 block h-1.5 w-8 rounded-full bg-gradient-to-r from-[#C58E9D] to-[#C9A86A] ${pulse ? "animate-pulse" : ""}`} />
-      <p className="text-sm font-bold text-[#FAF8F4]">{title}</p>
-      <p className="mt-2 text-xs leading-5 text-[#D2CBD7]">{status}</p>
+      <span className={`mb-3 block h-1.5 w-8 rounded-full bg-gradient-to-r from-[#D39AA8] to-[#D8BA82] ${pulse ? "animate-pulse" : ""}`} />
+      <p className="text-sm font-bold text-[#FFF9F3]">{title}</p>
+      <p className="mt-2 text-xs leading-5 text-[#D8C9D0]">{status}</p>
     </motion.div>
   );
 }

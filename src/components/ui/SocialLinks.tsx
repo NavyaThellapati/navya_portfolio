@@ -3,7 +3,7 @@ import { email, socialLinks } from "../../data/portfolioData";
 
 export function SocialLinks({ large = false }: { large?: boolean }) {
   const base =
-    "grid place-items-center rounded-full border border-[var(--line)] bg-[var(--surface)] text-[var(--text)] transition hover:-translate-y-1 hover:border-[#C9A86A]/70 hover:text-[#C9A86A]";
+    "grid place-items-center rounded-full border border-[var(--line)] bg-[var(--surface)] text-[var(--text)] transition hover:-translate-y-1 hover:border-[#D8BA82]/70 hover:text-[#D8BA82]";
   const size = large ? "h-12 w-12" : "h-10 w-10";
 
   return (

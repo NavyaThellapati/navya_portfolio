@@ -22,8 +22,8 @@ export const email = "navyachowdary.thellapati@gmail.com";
 export const location = "Tampa, Florida";
 
 export const socialLinks = {
-  linkedin: "",
-  github: "",
+  linkedin: "https://www.linkedin.com/in/navya-thellapati-69b0b7218/",
+  github: "https://github.com/NavyaThellapati/navya_portfolio",
 };
 
 export const roles = [
@@ -42,24 +42,24 @@ export const metrics: Metric[] = [
 
 export const focusAreas: FocusArea[] = [
   {
-    title: "Backend Engineering",
+    title: "Backend Development",
     icon: ServerCog,
     description:
-      "Building reliable backend services, workflow automation, REST APIs, database integrations, validation systems, and reusable Python modules.",
+      "Python services, APIs, databases, validation, logging, and automation.",
     technologies: ["Python", "FastAPI", "Flask", "REST APIs", "SQLAlchemy", "PostgreSQL", "SQL Server"],
   },
   {
     title: "Full-Stack Development",
     icon: Layers3,
     description:
-      "Developing responsive, API-driven applications with secure authentication and practical user workflows.",
+      "Responsive React applications connected to secure backend workflows.",
     technologies: ["React", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "JWT", "PostgreSQL"],
   },
   {
-    title: "AI-Integrated Applications",
+    title: "AI Development",
     icon: BrainCircuit,
     description:
-      "Creating RAG systems, semantic search workflows, vector-database applications, LLM integrations, and responsible machine-learning solutions.",
+      "RAG systems, semantic search, LLM integrations, and responsible AI.",
     technologies: ["LangChain", "OpenAI API", "Llama 3", "ChromaDB", "Sentence-Transformers", "TensorFlow"],
   },
 ];
@@ -67,10 +67,10 @@ export const focusAreas: FocusArea[] = [
 export const projects: Project[] = [
   {
     slug: "documind",
-    title: "DocuMind - AI Document Q&A Assistant",
+    title: "DocuMind - AI Document Search",
     shortTitle: "DocuMind",
     description:
-      "A retrieval-augmented document intelligence application that allows users to upload documents, index content, ask natural-language questions, and receive source-attributed answers.",
+      "Upload documents, search their content, and receive relevant answers with supporting references.",
     technologies: [
       "Python",
       "FastAPI",
@@ -92,7 +92,7 @@ export const projects: Project[] = [
       "Chat history",
       "OpenAPI-documented endpoints",
     ],
-    metrics: ["1,000+ documents", "35% fewer unsupported responses", "Source-attributed answers"],
+    metrics: ["1,000+ documents", "35% fewer unsupported responses"],
     problem:
       "Teams need a practical way to search large document collections and trust where an answer came from.",
     solution:
@@ -117,10 +117,10 @@ export const projects: Project[] = [
   },
   {
     slug: "mychart",
-    title: "MyChart - Full-Stack Healthcare Patient Portal",
+    title: "MyChart - Healthcare Patient Portal",
     shortTitle: "MyChart",
     description:
-      "A responsive healthcare portal that supports appointments, test results, medications, visit history, billing, provider messaging, and AI-assisted portal navigation.",
+      "Manage appointments, test results, medications, billing, messages, and AI-assisted navigation in one application.",
     technologies: [
       "React",
       "TypeScript",
@@ -146,7 +146,7 @@ export const projects: Project[] = [
       "Light, dark, and high-contrast themes",
       "Improved prototype task completion by 30%",
     ],
-    metrics: ["30% task completion improvement", "JWT auth", "Role-based access"],
+    metrics: ["30% improvement in task completion"],
     problem:
       "Patient portals must make complex healthcare tasks clear while protecting workflow and account access.",
     solution:
@@ -179,10 +179,10 @@ export const projects: Project[] = [
   },
   {
     slug: "responsible-ai",
-    title: "Fairness in Income Prediction and Responsible AI",
+    title: "Responsible AI - Income Prediction",
     shortTitle: "Responsible AI",
     description:
-      "A responsible machine-learning project evaluating income-classification accuracy and demographic fairness using the UCI Adult Census dataset.",
+      "A machine-learning project analyzing accuracy, demographic disparities, and fairness improvements.",
     technologies: ["Python", "TensorFlow", "scikit-learn", "Pandas", "NumPy"],
     highlights: [
       "48,842 records",
@@ -191,7 +191,7 @@ export const projects: Project[] = [
       "12% disparity identified",
       "82% accuracy maintained after fairness improvements",
     ],
-    metrics: ["48,842 records", "0.90 ROC AUC", "12% disparity identified"],
+    metrics: ["48,842 records", "85% accuracy", "0.90 ROC AUC"],
     problem:
       "Accuracy alone does not show whether a model performs responsibly across demographic groups.",
     solution:

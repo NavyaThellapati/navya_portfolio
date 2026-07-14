@@ -20,7 +20,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="dark-surface luxury-gradient animated-gradient particle-field cursor-spotlight relative min-h-screen overflow-hidden bg-[var(--bg)] pt-32"
+      className="luxury-gradient animated-gradient particle-field cursor-spotlight relative min-h-screen overflow-hidden bg-[var(--bg)] pt-32"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
         event.currentTarget.style.setProperty("--spotlight-x", `${event.clientX - rect.left}px`);
@@ -30,30 +30,39 @@ export function HeroSection() {
       <div className="beam left-[-6%] top-24" aria-hidden="true" />
       <div className="beam right-[-8%] top-64 animation-delay-700" aria-hidden="true" />
       <SectionBackground variant="hero" />
-      <div className="section-shell relative grid min-h-[calc(100vh-8rem)] items-center gap-16 pb-16 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="section-shell relative grid min-h-[calc(100vh-8rem)] items-center gap-12 pb-14 lg:grid-cols-[1fr_0.95fr]">
         <div>
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#FAF8F4]/16 bg-[#FAF8F4]/8 px-4 py-2 text-sm font-semibold text-[#FAF8F4] shadow-2xl shadow-[#6E426F]/20 backdrop-blur"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#FFF9F3]/16 bg-[#30212B]/82 px-4 py-2 text-sm font-semibold text-[#FFF9F3] shadow-2xl shadow-[#130D12]/20 backdrop-blur"
           >
-            <span className="h-2 w-2 rounded-full bg-[#8FA58C]" />
-            Available for software engineering opportunities
+            <span className="h-2 w-2 rounded-full bg-[#9CAC91]" />
+            Open to Software Engineering opportunities
           </motion.div>
-          <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 22 }}
-            animate={reduce ? undefined : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.08 }}
-            className="font-display text-5xl font-extrabold leading-[0.98] text-[var(--text)] sm:text-7xl lg:text-8xl"
+          <motion.p
+            initial={reduce ? false : { opacity: 0, x: -18 }}
+            animate={reduce ? undefined : { opacity: 1, x: 0 }}
+            transition={{ duration: 0.45, delay: 0.04 }}
+            className="mb-3 text-base font-semibold text-[#D8C9D0]"
           >
-            Navya <span className="gradient-text">Thellapati</span>
+            Hi, I&apos;m Navya Thellapati.
+          </motion.p>
+          <motion.h1
+            initial={reduce ? false : { opacity: 0, x: -28 }}
+            animate={reduce ? undefined : { opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="max-w-full break-words font-display text-[clamp(2.125rem,10vw,3rem)] font-extrabold leading-[1.03] text-[var(--text)]"
+          >
+            <span className="block sm:inline">Navya</span>{" "}
+            <span className="gradient-text block sm:inline">Thellapati</span>
           </motion.h1>
           <motion.p
             key={roles[roleIndex]}
             initial={reduce ? false : { opacity: 0, y: 10 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
-            className="mt-6 font-display text-xl font-bold text-[#F6D8DF] sm:text-2xl"
+            className="mt-5 font-display text-lg font-bold text-[#D39AA8] sm:text-xl"
           >
             {roles[roleIndex]}
           </motion.p>
@@ -61,16 +70,16 @@ export function HeroSection() {
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.18 }}
-            className="mt-8 max-w-2xl font-display text-3xl font-bold leading-tight text-[#FAF8F4] sm:text-5xl"
+            className="mt-6 max-w-2xl font-display text-[clamp(1.875rem,4vw,3.25rem)] font-bold leading-tight text-[#FFF9F3] lg:text-[clamp(2.25rem,3.4vw,3.25rem)]"
           >
-            Turning complex workflows into dependable software.
+            Software Engineer building reliable applications and intelligent products.
           </motion.p>
-          <p className="mt-6 max-w-xl text-xl leading-8 text-[#D2CBD7]">
-            From enterprise automation to AI-powered experiences, crafted for scale, reliability, and real users.
+          <p className="mt-5 max-w-xl text-[clamp(1rem,1.5vw,1.125rem)] leading-7 text-[#D8C9D0]">
+            I develop backend services, API integrations, full-stack applications, automation workflows, and AI-powered tools.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-4 text-sm font-semibold text-[var(--muted)]">
-            <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-[#C9A86A]" />{location}</span>
-            <a className="hover:text-[#FAF8F4]" href={`mailto:${email}`}>{email}</a>
+            <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-[#D8BA82]" />{location}</span>
+            <a className="hover:text-[#FFF9F3]" href={`mailto:${email}`}>{email}</a>
           </div>
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 18 }}
@@ -78,9 +87,9 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.28 }}
             className="mt-8 flex flex-wrap gap-3"
           >
-            <ButtonLink href="#work" showArrow>Explore Projects</ButtonLink>
-            <ButtonLink href={resumeUrl} download variant="secondary">View Resume</ButtonLink>
-            <ButtonLink href="#contact" variant="ghost">Let&apos;s Connect</ButtonLink>
+            <ButtonLink href="#work" showArrow>View Projects</ButtonLink>
+            <ButtonLink href={resumeUrl} download variant="secondary">Download Resume</ButtonLink>
+            <ButtonLink href="#contact" variant="ghost">Contact Me</ButtonLink>
           </motion.div>
           <div className="mt-7"><SocialLinks large /></div>
         </div>

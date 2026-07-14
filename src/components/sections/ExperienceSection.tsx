@@ -8,31 +8,26 @@ export function ExperienceSection() {
   const [expanded, setExpanded] = useState(false);
   const milestones = [
     "Automated 300+ recurring checks",
-    "Improved efficiency by 28%",
+    "Improved processing efficiency by 28%",
     "Integrated 20+ internal APIs",
-    "Supported 6K+ daily records",
+    "Supported 6K+ daily financial records",
     "Reduced data mismatches by 25%",
   ];
 
   return (
-    <AnimatedSection id="experience" className="light-neutral relative overflow-hidden py-28">
+    <AnimatedSection id="experience" className="relative overflow-hidden bg-[var(--bg)] py-24">
       <SectionBackground variant="timeline" />
       <div className="section-shell relative grid gap-12 lg:grid-cols-[0.78fr_1.22fr]">
         <div className="lg:sticky lg:top-28 lg:h-fit">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[var(--purple)]">Experience</p>
-          <h2 className="font-display text-4xl font-extrabold sm:text-6xl">Enterprise software, measured by impact.</h2>
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[var(--gold)]">Experience</p>
+          <h2 className="font-display text-[clamp(2rem,3.5vw,2.75rem)] font-extrabold leading-tight">Associate Software Engineer</h2>
+          <p className="mt-3 font-semibold text-[var(--text)]">Accenture Solutions · Client: Edward Jones</p>
+          <p className="mt-1 font-bold text-[#D39AA8]">June 2021 – July 2024</p>
           <p className="mt-5 max-w-md text-lg leading-8 text-[var(--muted)]">
-            Built and supported backend workflows for enterprise financial systems.
+            Developed Python, API, SQL, automation, and validation workflows for enterprise financial applications.
           </p>
         </div>
         <article className="relative">
-          <div className="mb-10 flex flex-col gap-3 border-b border-[var(--line)] pb-8 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h3 className="font-display text-3xl font-bold">Associate Software Engineer</h3>
-              <p className="mt-2 text-[var(--muted)]">Accenture Solutions · Client: Edward Jones</p>
-            </div>
-            <p className="font-bold text-[var(--plum)]">June 2021 – July 2024</p>
-          </div>
           <div className="relative grid gap-5 before:absolute before:left-5 before:top-2 before:h-[calc(100%-16px)] before:w-px before:bg-[var(--line)]">
             {milestones.map((milestone, index) => {
               const Icon = experienceGroups[index % experienceGroups.length].icon;
@@ -46,11 +41,11 @@ export function ExperienceSection() {
                   transition={{ delay: index * 0.08 }}
                 >
                   <div className="absolute left-0 top-0 grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[var(--bg-soft)]">
-                    <Icon className="h-5 w-5 text-[var(--purple)]" />
+                    <Icon className="h-5 w-5 text-[var(--gold)]" />
                   </div>
-                  <div className="rounded-[26px] border border-[var(--line)] bg-[#FAF7F2]/82 p-5 shadow-xl shadow-[#6E426F]/5">
-                    <p className="text-sm font-bold text-[var(--muted)]">Impact 0{index + 1}</p>
-                    <h4 className="mt-2 font-display text-2xl font-bold text-[var(--text)]">{milestone}</h4>
+                  <div className="rounded-[26px] border border-[var(--line)] bg-[var(--surface)] p-5 shadow-xl shadow-[#130D12]/12">
+                    <p className="text-sm font-bold text-[var(--muted-soft)]">Impact 0{index + 1}</p>
+                    <h4 className="mt-2 font-display text-[clamp(1.1rem,2vw,1.45rem)] font-bold text-[var(--text)]">{milestone}</h4>
                   </div>
                 </motion.div>
               );
@@ -59,7 +54,7 @@ export function ExperienceSection() {
           <button
             type="button"
             onClick={() => setExpanded((value) => !value)}
-            className="mt-8 rounded-full bg-[var(--text)] px-5 py-3 text-sm font-bold text-[var(--bg)] transition hover:-translate-y-0.5"
+            className="mt-7 rounded-full bg-[#D8BA82] px-4 py-2.5 text-sm font-bold text-[#241820] transition hover:-translate-y-0.5 hover:bg-[#D39AA8]"
           >
             {expanded ? "Hide full experience" : "View full experience"}
           </button>
@@ -70,7 +65,7 @@ export function ExperienceSection() {
           >
             <div className="mt-6 grid gap-4">
               {experienceGroups.map((group) => (
-                <div key={group.title} className="rounded-3xl border border-[var(--line)] bg-[#FAF7F2]/78 p-5">
+                <div key={group.title} className="rounded-3xl border border-[var(--line)] bg-[var(--surface-soft)] p-5">
                   <h4 className="font-display text-xl font-bold">{group.title}</h4>
                   <ul className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)]">
                     {group.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}

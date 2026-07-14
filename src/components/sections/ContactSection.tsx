@@ -7,18 +7,18 @@ import { CopyEmailButton } from "../ui/CopyEmailButton";
 
 export function ContactSection() {
   return (
-    <AnimatedSection id="contact" className="dark-surface luxury-gradient animated-gradient relative overflow-hidden bg-[var(--bg)] py-28">
+    <AnimatedSection id="contact" className="relative overflow-hidden bg-[var(--bg)] py-24">
       <SectionBackground variant="contact" />
-      <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-[#C58E9D]/18 blur-3xl" aria-hidden="true" />
+      <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-[#D39AA8]/18 blur-3xl" aria-hidden="true" />
       <div className="section-shell relative">
-        <div className="mx-auto max-w-5xl border-y border-[#FAF8F4]/10 py-16 text-center">
-          <h2 className="font-display text-5xl font-extrabold leading-tight sm:text-7xl">Let’s create something useful.</h2>
+        <div className="mx-auto max-w-5xl rounded-[34px] border border-[#FFF9F3]/10 bg-[var(--surface)] px-5 py-14 text-center shadow-2xl shadow-[#130D12]/18 sm:px-10">
+          <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-extrabold leading-tight">Open to new opportunities.</h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[var(--muted)]">
-            I’m open to Software Engineer, Backend, Full-Stack, and AI opportunities.
+            I’m currently exploring Software Engineer, Backend, Full-Stack, and AI Engineer roles.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-4 text-sm font-semibold text-[var(--muted)]">
-            <a className="inline-flex items-center gap-2 hover:text-[#FAF8F4]" href={`mailto:${email}`}><Mail className="h-4 w-4" />{email}</a>
-            <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-[#C9A86A]" />{location}</span>
+            <a className="inline-flex items-center gap-2 hover:text-[#FFF9F3]" href={`mailto:${email}`}><Mail className="h-4 w-4" />{email}</a>
+            <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-[#D8BA82]" />{location}</span>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <CopyEmailButton />

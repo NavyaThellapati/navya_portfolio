@@ -10,43 +10,43 @@ export function ProjectsSection() {
     {
       slug: "documind",
       title: "DocuMind",
-      subtitle: "Ask your documents. Get grounded answers.",
-      description: "An AI document assistant that searches uploaded content and returns source-backed responses.",
+      subtitle: "AI document search with source-backed answers.",
+      description: "Upload documents, search their content, and receive relevant answers with supporting references.",
       metrics: ["1,000+ documents", "35% fewer unsupported responses"],
     },
     {
       slug: "mychart",
       title: "MyChart",
-      subtitle: "Healthcare tasks in one simple portal.",
-      description: "A patient portal for appointments, test results, medications, billing, messaging, and AI-assisted navigation.",
-      metrics: ["30% better task completion"],
+      subtitle: "A full-stack healthcare patient portal.",
+      description: "Manage appointments, test results, medications, billing, messages, and AI-assisted navigation in one application.",
+      metrics: ["30% improvement in task completion"],
     },
     {
       slug: "responsible-ai",
       title: "Responsible AI",
-      subtitle: "Accuracy without ignoring fairness.",
-      description: "A machine-learning project evaluating income prediction across demographic groups.",
+      subtitle: "Income prediction evaluated for performance and fairness.",
+      description: "A machine-learning project analyzing accuracy, demographic disparities, and fairness improvements.",
       metrics: ["48,842 records", "85% accuracy", "0.90 ROC AUC"],
     },
   ] as const;
 
   return (
-    <AnimatedSection id="work" className="dark-surface relative overflow-hidden bg-[radial-gradient(circle_at_52%_0%,rgba(110,66,111,0.28),transparent_32%),linear-gradient(180deg,#17151C,#211C29_45%,#17151C)] py-28">
+    <AnimatedSection id="work" className="relative overflow-hidden bg-[var(--bg)] py-24">
       <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden="true" />
-      <div className="orb left-1/4 top-60 h-96 w-96 bg-[#6E426F]/22" aria-hidden="true" />
-      <div className="orb right-0 top-[38%] h-96 w-96 bg-[#8A4F62]/22" aria-hidden="true" />
+      <div className="orb left-1/4 top-60 h-96 w-96 bg-[#A95F73]/22" aria-hidden="true" />
+      <div className="orb right-0 top-[38%] h-96 w-96 bg-[#A95F73]/22" aria-hidden="true" />
       <div className="section-shell relative">
         <SectionHeading
-          eyebrow="Selected Work"
-          title="Product stories with engineering underneath."
-          body="Three launches across document intelligence, healthcare workflows, and responsible machine learning."
+          eyebrow="Projects"
+          title="Featured Projects"
+          body="Selected work across backend, full-stack, and AI development."
           align="center"
         />
-        <div className="mt-20 space-y-24">
+        <div className="mt-16 space-y-20">
           {homeProjects.map((project, index) => (
             <motion.article
               key={project.slug}
-              className="grid items-center gap-10 border-t border-[#FAF8F4]/10 pt-14 lg:grid-cols-2"
+              className="grid items-center gap-10 border-t border-[#FFF9F3]/10 pt-12 lg:grid-cols-2"
               initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.22 }}
@@ -60,20 +60,20 @@ export function ProjectsSection() {
                 <ProjectMockup slug={project.slug} />
               </motion.div>
               <div>
-                <p className="mb-4 text-sm font-bold uppercase tracking-[0.28em] text-[#D2CBD7]">Case Study 0{index + 1}</p>
-                <h3 className="font-display text-4xl font-extrabold leading-tight text-[var(--text)] sm:text-5xl">{project.title}</h3>
-                <p className="mt-3 font-display text-xl font-bold text-[#F6D8DF]">{project.subtitle}</p>
-                <p className="mt-5 max-w-xl text-lg leading-8 text-[var(--muted)]">{project.description}</p>
+                <p className="mb-4 text-sm font-bold uppercase tracking-[0.28em] text-[#B8A5AE]">Case Study 0{index + 1}</p>
+                <h3 className="font-display text-[clamp(1.5rem,3vw,2.375rem)] font-extrabold leading-tight text-[var(--text)]">{project.title}</h3>
+                <p className="mt-3 font-display text-[clamp(1rem,1.8vw,1.25rem)] font-bold text-[#D39AA8]">{project.subtitle}</p>
+                <p className="mt-5 max-w-xl text-[clamp(1rem,1.35vw,1.125rem)] leading-8 text-[var(--muted)]">{project.description}</p>
                 <div className="mt-8 grid gap-5 sm:grid-cols-3">
                   {project.metrics.map((metric) => (
-                    <div key={metric} className="border-l border-[#FAF8F4]/14 pl-4">
-                      <p className="text-sm font-bold text-[#FAF8F4]">{metric}</p>
+                    <div key={metric} className="border-l border-[#D8BA82]/30 pl-4">
+                      <p className="text-sm font-bold text-[#FFF9F3]">{metric}</p>
                     </div>
                   ))}
                 </div>
                 <Link
                   to={`/projects/${project.slug}`}
-                  className="group mt-8 inline-flex items-center gap-2 rounded-full bg-[#FAF8F4] px-5 py-3 text-sm font-bold text-[#211D24] shadow-xl shadow-[#6E426F]/25 transition hover:-translate-y-0.5 hover:bg-[#F6D8DF]"
+                  className="group mt-8 inline-flex items-center gap-2 rounded-full bg-[#D8BA82] px-5 py-3 text-sm font-bold text-[#241820] shadow-xl shadow-[#130D12]/25 transition hover:-translate-y-0.5 hover:bg-[#D39AA8]"
                 >
                   View Case Study
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
