@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { Code2, Database, Rocket, TrendingUp } from "lucide-react";
 import { metrics } from "../../data/portfolioData";
 
 function CountUp({ value, suffix }: { value: number; suffix: string }) {
@@ -25,20 +26,30 @@ function CountUp({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export function ImpactMetrics() {
+  const icons = [Rocket, Code2, Database, TrendingUp];
+
   return (
-    <section className="relative z-10 bg-[var(--bg)] pb-10">
-      <div className="section-shell grid grid-cols-2 gap-3 overflow-hidden rounded-[30px] border border-[#FFF9F3]/12 bg-[var(--bg-soft)] p-3 shadow-2xl shadow-[#130D12]/30 lg:grid-cols-4">
+    <section className="relative z-10 bg-[var(--bg)] pb-8">
+      <div className="section-shell grid grid-cols-2 gap-0 overflow-hidden rounded-[18px] border border-[#D39AA8]/28 bg-[#30212B]/70 p-2 shadow-[0_0_44px_rgba(211,154,168,0.12)] backdrop-blur-xl lg:grid-cols-4">
         {metrics.map((metric, index) => (
           <motion.div
             key={metric.label}
-            className="rounded-[22px] bg-[var(--surface-soft)] p-5 text-center"
+            className="flex items-center gap-4 border-[#FFF9F3]/10 p-4 text-left lg:border-r last:lg:border-r-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.08 }}
           >
-            <p className="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-bold text-[#FFF9F3]"><CountUp value={metric.value} suffix={metric.suffix} /></p>
-            <p className="mt-2 text-sm font-semibold text-[#D8C9D0]">{metric.label}</p>
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#D39AA8]/12 text-[#D39AA8] shadow-[0_0_24px_rgba(211,154,168,0.18)]">
+              {(() => {
+                const Icon = icons[index];
+                return <Icon className="h-6 w-6" />;
+              })()}
+            </span>
+            <span>
+              <span className="block font-display text-[clamp(1.55rem,3vw,2.1rem)] font-bold text-[#FFF9F3]"><CountUp value={metric.value} suffix={metric.suffix} /></span>
+              <span className="mt-1 block text-xs font-semibold text-[#D8C9D0]">{metric.label}</span>
+            </span>
           </motion.div>
         ))}
       </div>

@@ -54,8 +54,26 @@ body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(170, 130, 194, 0.12), transparent 28%),
+    radial-gradient(circle at 84% 22%, rgba(211, 154, 168, 0.12), transparent 30%),
+    var(--bg);
   color: var(--text);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, rgba(255, 249, 243, 0.32) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(211, 154, 168, 0.24) 0 1px, transparent 1.5px),
+    repeating-radial-gradient(ellipse at 72% 26%, rgba(211,154,168,0.12) 0 1px, transparent 1px 9px);
+  background-size: 130px 130px, 190px 190px, 100% 100%;
+  opacity: 0.24;
+  animation: particles-float 26s linear infinite;
 }
 
 body.menu-open {
@@ -140,8 +158,8 @@ input:focus-visible {
 
 .luxury-gradient {
   background:
-    radial-gradient(circle at 14% 20%, rgba(211, 154, 168, 0.2), transparent 28%),
-    radial-gradient(circle at 74% 18%, rgba(169, 95, 115, 0.26), transparent 31%),
+    radial-gradient(circle at 14% 20%, rgba(211, 154, 168, 0.24), transparent 28%),
+    radial-gradient(circle at 74% 18%, rgba(170, 130, 194, 0.2), transparent 31%),
     radial-gradient(circle at 48% 82%, rgba(216, 186, 130, 0.12), transparent 34%),
     linear-gradient(135deg, #241820 0%, #241820 100%);
 }

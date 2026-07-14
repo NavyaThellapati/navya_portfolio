@@ -44,6 +44,22 @@ export function HeroEngineeringVisual() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <div className="relative h-full">
+        <motion.span
+          className="absolute left-[66%] top-[18%] z-20 rounded-full border border-[#FFF9F3]/12 bg-[#241820]/70 px-3 py-1 text-[10px] font-bold text-[#D8C9D0]"
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+        >
+          HTTPS Request
+        </motion.span>
+        <motion.span
+          className="absolute left-[54%] top-[55%] z-20 rounded-full border border-[#FFF9F3]/12 bg-[#241820]/70 px-3 py-1 text-[10px] font-bold text-[#D8C9D0]"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.05 }}
+        >
+          JSON Response
+        </motion.span>
         <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-[#FFF9F3]/12 bg-[#30212B]/86 p-5 text-center shadow-2xl shadow-[#130D12]/20">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#D39AA8]">Core</p>
           <p className="mt-3 font-display text-2xl font-bold text-[#FFF9F3]">API Layer</p>
@@ -102,6 +118,20 @@ export function HeroEngineeringVisual() {
           : null}
       </div>
       <div className="absolute inset-x-6 bottom-6 flex flex-wrap justify-center gap-2">
+        <motion.div
+          className="mr-auto hidden min-w-64 items-center gap-3 rounded-2xl border border-[#FFF9F3]/12 bg-[#241820]/72 px-4 py-3 text-xs text-[#D8C9D0] sm:flex"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.18 }}
+        >
+          <span className="h-2 w-2 rounded-full bg-[#9CAC91] shadow-[0_0_12px_rgba(156,172,145,0.85)]" />
+          <span><strong className="text-[#FFF9F3]">System Status</strong><br />All services operational</span>
+          <motion.span
+            className="ml-auto h-6 w-14 rounded-full border-y border-[#9CAC91]/40"
+            animate={reduce ? undefined : { opacity: [0.45, 1, 0.45] }}
+            transition={{ duration: 1.6, repeat: Infinity }}
+          />
+        </motion.div>
         {labels.map((label, index) => (
           <motion.span
             key={label}

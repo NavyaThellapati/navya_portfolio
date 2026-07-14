@@ -1,33 +1,33 @@
 import type { ProjectSlug } from "../../types/portfolio";
 import { motion } from "framer-motion";
 
-export function ProjectMockup({ slug }: { slug: ProjectSlug }) {
-  if (slug === "mychart") return <HealthcareMockup />;
-  if (slug === "responsible-ai") return <ResponsibleAIMockup />;
-  return <DocuMindMockup />;
+export function ProjectMockup({ slug, compact = false }: { slug: ProjectSlug; compact?: boolean }) {
+  if (slug === "mychart") return <HealthcareMockup compact={compact} />;
+  if (slug === "responsible-ai") return <ResponsibleAIMockup compact={compact} />;
+  return <DocuMindMockup compact={compact} />;
 }
 
-function Frame({ children, label }: { children: React.ReactNode; label: string }) {
+function Frame({ children, label, compact = false }: { children: React.ReactNode; label: string; compact?: boolean }) {
   return (
-    <div className="relative">
+    <div className={`relative ${compact ? "text-[0.82rem]" : ""}`}>
       <div className="absolute inset-x-12 -bottom-6 h-12 rounded-full bg-[#A95F73]/24 blur-2xl" />
-      <div className="relative overflow-hidden rounded-t-[30px] border border-[#FFF9F3]/14 bg-[linear-gradient(145deg,rgba(250,248,244,0.13),rgba(250,248,244,0.035))] p-4 shadow-2xl shadow-[#241820]/28">
+      <div className={`relative overflow-hidden rounded-t-[24px] border border-[#FFF9F3]/14 bg-[linear-gradient(145deg,rgba(255,249,243,0.11),rgba(255,249,243,0.03))] shadow-2xl shadow-[#241820]/28 ${compact ? "p-3" : "p-4"}`}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_45%_0%,rgba(197,142,157,0.17),transparent_32%),radial-gradient(circle_at_90%_20%,rgba(139,95,191,0.16),transparent_34%)]" />
-        <div className="relative mb-4 flex items-center justify-between border-b border-[#FFF9F3]/10 pb-3">
+        <div className="relative mb-3 flex items-center justify-between border-b border-[#FFF9F3]/10 pb-3">
           <div className="flex gap-2"><span className="h-2.5 w-2.5 rounded-full bg-[#D39AA8]" /><span className="h-2.5 w-2.5 rounded-full bg-[#D8BA82]" /><span className="h-2.5 w-2.5 rounded-full bg-[#9CAC91]" /></div>
           <span className="text-xs font-bold uppercase tracking-[0.24em] text-[#D8C9D0]">{label}</span>
         </div>
         <div className="relative">{children}</div>
       </div>
-      <div className="mx-auto h-4 w-[86%] rounded-b-[28px] border border-[#FFF9F3]/10 bg-[linear-gradient(180deg,rgba(250,248,244,0.2),rgba(250,248,244,0.04))]" />
+      <div className="mx-auto h-3 w-[86%] rounded-b-[24px] border border-[#FFF9F3]/10 bg-[linear-gradient(180deg,rgba(255,249,243,0.18),rgba(255,249,243,0.035))]" />
     </div>
   );
 }
 
-function DocuMindMockup() {
+function DocuMindMockup({ compact = false }: { compact?: boolean }) {
   return (
-    <Frame label="Document AI">
-      <div className="grid gap-3 md:grid-cols-[0.8fr_1.2fr]">
+    <Frame label="Document AI" compact={compact}>
+      <div className={`grid gap-3 ${compact ? "" : "md:grid-cols-[0.8fr_1.2fr]"}`}>
         <div className="rounded-2xl bg-[#FFF9F3]/8 p-3">
           <p className="text-xs font-bold text-[#FFF9F3]">Document Library</p>
           {["policy.txt", "handbook.pdf", "guide.md"].map((doc, i) => (
@@ -53,7 +53,7 @@ function DocuMindMockup() {
           ))}
           <div className="mt-3 rounded-xl border border-dashed border-[#D8BA82]/35 p-4 text-center text-xs text-[#FFF9F3]">Upload panel</div>
         </div>
-        <div className="space-y-3">
+        <div className={`space-y-3 ${compact ? "hidden sm:block lg:hidden xl:block" : ""}`}>
           <div className="rounded-2xl bg-[#FFF9F3]/8 p-3">
             <motion.div
               className="overflow-hidden whitespace-nowrap rounded-full bg-[#241820]/80 px-4 py-3 text-xs text-[#D8C9D0]"
@@ -100,9 +100,9 @@ function DocuMindMockup() {
   );
 }
 
-function HealthcareMockup() {
+function HealthcareMockup({ compact = false }: { compact?: boolean }) {
   return (
-    <Frame label="Patient Portal">
+    <Frame label="Patient Portal" compact={compact}>
       <div className="grid gap-3 sm:grid-cols-2">
         {[
           ["Upcoming appointment", "Primary care · 10:30 AM", false],
@@ -135,9 +135,9 @@ function HealthcareMockup() {
   );
 }
 
-function ResponsibleAIMockup() {
+function ResponsibleAIMockup({ compact = false }: { compact?: boolean }) {
   return (
-    <Frame label="Fairness Analytics">
+    <Frame label="Fairness Analytics" compact={compact}>
       <div className="grid gap-3 sm:grid-cols-3">
         <Panel title="Accuracy" value="85%" accent />
         <Panel title="ROC AUC" value="0.90" />

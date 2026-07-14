@@ -2,16 +2,17 @@ import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { resumeUrl } from "../../data/portfolioData";
+import { resumeUrl, socialLinks } from "../../data/portfolioData";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import { SocialLinks } from "../ui/SocialLinks";
 
 const navItems = [
   { label: "Home", href: "/#home" },
-  { label: "Work", href: "/#work" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Expertise", href: "/#expertise" },
   { label: "About", href: "/#about" },
+  { label: "Projects", href: "/#work" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Skills", href: "/#expertise" },
+  { label: "Education", href: "/#education" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -54,29 +55,29 @@ export function FloatingNavigation() {
     <header className="fixed inset-x-0 top-4 z-50 px-4">
       <nav
         aria-label="Primary navigation"
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-4 transition-all duration-300 ${
+        className={`mx-auto flex max-w-[1180px] items-center justify-between rounded-full border px-4 transition-all duration-300 ${
           scrolled
             ? "h-16 border-[var(--line)] bg-[var(--surface)] shadow-2xl shadow-[#130D12]/20 backdrop-blur-2xl"
             : "h-18 border-transparent bg-transparent"
         }`}
       >
-        <Link
-          to="/#home"
-          className="grid h-11 w-11 place-items-center rounded-full bg-[var(--text)] font-display text-sm font-bold text-[var(--bg)]"
-          aria-label="Navya Thellapati home"
-        >
-          NT
+        <Link to="/#home" className="flex items-center gap-3" aria-label="Navya Thellapati home">
+          <span className="grid h-11 w-11 place-items-center rounded-full border border-[#D39AA8]/70 bg-[#241820]/80 font-display text-sm font-bold text-[#FFF9F3] shadow-[0_0_24px_rgba(211,154,168,0.42)]">NT</span>
+          <span className="hidden leading-tight sm:block">
+            <span className="block text-sm font-bold text-[#D39AA8]">Navya</span>
+            <span className="block text-sm font-bold text-[#FFF9F3]">Thellapati</span>
+          </span>
         </Link>
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-1 xl:flex">
           {navItems.map((item) => {
             const id = item.href.split("#")[1];
             return (
               <Link
                 key={item.label}
                 to={item.href}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                className={`relative rounded-full px-3 py-2 text-sm font-semibold transition ${
                   active === id && location.pathname === "/"
-                    ? "bg-[#D39AA8]/16 text-[#FFF9F3]"
+                    ? "text-[#FFF9F3] after:absolute after:inset-x-4 after:-bottom-1 after:h-px after:bg-[#D39AA8] after:shadow-[0_0_10px_rgba(211,154,168,0.9)]"
                     : scrolled
                       ? "text-[var(--muted)] hover:text-[var(--text)]"
                       : "text-[#FFF9F3]/72 hover:text-[#FFF9F3]"
@@ -88,11 +89,21 @@ export function FloatingNavigation() {
           })}
         </div>
         <div className="hidden items-center gap-3 lg:flex">
+          {socialLinks.github ? (
+            <a href={socialLinks.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="grid h-10 w-10 place-items-center rounded-full border border-transparent text-[#FFF9F3] transition hover:border-[#D39AA8]/40 hover:bg-[#30212B] hover:text-[#D39AA8]">
+              <span className="text-xs font-black">GH</span>
+            </a>
+          ) : null}
+          {socialLinks.linkedin ? (
+            <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid h-10 w-10 place-items-center rounded-full border border-transparent text-[#FFF9F3] transition hover:border-[#D39AA8]/40 hover:bg-[#30212B] hover:text-[#D39AA8]">
+              <span className="text-xs font-black">in</span>
+            </a>
+          ) : null}
           <ThemeToggle />
           <a
             href={resumeUrl}
             download
-            className="rounded-full bg-gradient-to-r from-[#A95F73] to-[#D8BA82] px-4 py-2 text-sm font-bold text-[#241820] shadow-lg shadow-[#130D12]/25 transition hover:-translate-y-0.5 hover:brightness-110"
+            className="rounded-full bg-gradient-to-r from-[#A95F73] to-[#D39AA8] px-4 py-2 text-sm font-bold text-[#FFF9F3] shadow-lg shadow-[#A95F73]/25 transition hover:-translate-y-0.5 hover:brightness-110"
           >
             Resume
           </a>
@@ -116,7 +127,7 @@ export function FloatingNavigation() {
             transition={{ duration: 0.25 }}
           >
             <div className="flex items-center justify-between">
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-[var(--text)] font-display font-bold text-[var(--bg)]">NT</span>
+              <span className="grid h-12 w-12 place-items-center rounded-full border border-[#D39AA8]/70 bg-[#241820] font-display font-bold text-[#FFF9F3]">NT</span>
               <button
                 type="button"
                 aria-label="Close menu"
@@ -137,7 +148,7 @@ export function FloatingNavigation() {
                   <Link
                     to={item.href}
                     onClick={() => setOpen(false)}
-                    className="font-display text-4xl font-bold text-[var(--text)]"
+                    className="font-display text-3xl font-bold text-[var(--text)]"
                   >
                     {item.label}
                   </Link>
@@ -152,7 +163,7 @@ export function FloatingNavigation() {
               <a
                 href={resumeUrl}
                 download
-                className="rounded-full bg-gradient-to-r from-[#A95F73] to-[#D8BA82] px-5 py-4 text-center text-sm font-bold text-[#241820]"
+                className="rounded-full bg-gradient-to-r from-[#A95F73] to-[#D39AA8] px-5 py-4 text-center text-sm font-bold text-[#FFF9F3]"
               >
                 Download Resume
               </a>

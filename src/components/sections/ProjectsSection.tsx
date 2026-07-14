@@ -31,7 +31,7 @@ export function ProjectsSection() {
   ] as const;
 
   return (
-    <AnimatedSection id="work" className="relative overflow-hidden bg-[var(--bg)] py-24">
+    <AnimatedSection id="work" className="relative overflow-hidden bg-[var(--bg)] py-16">
       <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden="true" />
       <div className="orb left-1/4 top-60 h-96 w-96 bg-[#A95F73]/22" aria-hidden="true" />
       <div className="orb right-0 top-[38%] h-96 w-96 bg-[#A95F73]/22" aria-hidden="true" />
@@ -40,31 +40,30 @@ export function ProjectsSection() {
           eyebrow="Projects"
           title="Featured Projects"
           body="Selected work across backend, full-stack, and AI development."
-          align="center"
         />
-        <div className="mt-16 space-y-20">
+        <div className="mt-8 flex snap-x gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-3 lg:overflow-visible">
           {homeProjects.map((project, index) => (
             <motion.article
               key={project.slug}
-              className="grid items-center gap-10 border-t border-[#FFF9F3]/10 pt-12 lg:grid-cols-2"
+              className="group min-w-[82vw] snap-center overflow-hidden rounded-[18px] border border-[#D39AA8]/22 bg-[#30212B]/62 p-5 shadow-[0_0_34px_rgba(211,154,168,0.08)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-[#D39AA8]/45 lg:min-w-0"
               initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.22 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.55, delay: index * 0.08 }}
             >
               <motion.div
-                className={index % 2 === 1 ? "lg:order-2" : ""}
                 whileHover={{ y: -8, rotateX: 1.5, rotateY: index % 2 ? -2 : 2 }}
                 transition={{ type: "spring", stiffness: 180, damping: 18 }}
               >
-                <ProjectMockup slug={project.slug} />
+                <div className="mt-4">
+                  <ProjectMockup slug={project.slug} compact />
+                </div>
               </motion.div>
-              <div>
-                <p className="mb-4 text-sm font-bold uppercase tracking-[0.28em] text-[#B8A5AE]">Case Study 0{index + 1}</p>
-                <h3 className="font-display text-[clamp(1.5rem,3vw,2.375rem)] font-extrabold leading-tight text-[var(--text)]">{project.title}</h3>
-                <p className="mt-3 font-display text-[clamp(1rem,1.8vw,1.25rem)] font-bold text-[#D39AA8]">{project.subtitle}</p>
-                <p className="mt-5 max-w-xl text-[clamp(1rem,1.35vw,1.125rem)] leading-8 text-[var(--muted)]">{project.description}</p>
-                <div className="mt-8 grid gap-5 sm:grid-cols-3">
+              <div className="relative z-10">
+                <h3 className="font-display text-[clamp(1.35rem,2vw,1.85rem)] font-extrabold leading-tight text-[var(--text)]">{project.title}</h3>
+                <p className="mt-2 text-sm font-bold text-[#D39AA8]">{project.subtitle}</p>
+                <p className="mt-4 min-h-20 text-sm leading-6 text-[var(--muted)]">{project.description}</p>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
                   {project.metrics.map((metric) => (
                     <div key={metric} className="border-l border-[#D8BA82]/30 pl-4">
                       <p className="text-sm font-bold text-[#FFF9F3]">{metric}</p>
@@ -73,7 +72,7 @@ export function ProjectsSection() {
                 </div>
                 <Link
                   to={`/projects/${project.slug}`}
-                  className="group mt-8 inline-flex items-center gap-2 rounded-full bg-[#D8BA82] px-5 py-3 text-sm font-bold text-[#241820] shadow-xl shadow-[#130D12]/25 transition hover:-translate-y-0.5 hover:bg-[#D39AA8]"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#D8BA82] transition hover:text-[#FFF9F3]"
                 >
                   View Case Study
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
