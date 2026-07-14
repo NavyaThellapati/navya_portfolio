@@ -39,7 +39,7 @@ const groups = [
 export function SkillsSection() {
   return (
     <AnimatedSection id="expertise" className="relative overflow-hidden bg-[var(--bg)] py-16">
-      <div className="orb right-10 top-12 h-64 w-64 bg-[#AA82C2]/18" />
+      <div className="orb right-10 top-12 h-64 w-64 bg-[#7C3AED]/18" />
       <div className="section-shell relative">
         <SectionHeading
           eyebrow="Skills"
@@ -52,13 +52,13 @@ export function SkillsSection() {
             return (
               <motion.article
                 key={group.title}
-                className="group relative overflow-hidden rounded-[14px] border border-[var(--line)] bg-[var(--surface)] p-4 shadow-xl shadow-[#130D12]/12 transition hover:-translate-y-1 hover:border-[#D39AA8]/42 hover:bg-[var(--surface-strong)] hover:shadow-2xl hover:shadow-[#130D12]/18"
+                className="group relative overflow-hidden rounded-[14px] border border-[var(--line)] bg-[var(--surface)] p-4 shadow-xl shadow-[#090611]/12 transition hover:-translate-y-1 hover:border-[#F08AB8]/42 hover:bg-[var(--surface-strong)] hover:shadow-2xl hover:shadow-[#090611]/18"
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.06 }}
               >
-                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-[#D39AA8]/18 to-[#D8BA82]/14 transition group-hover:scale-125" />
+                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-[#F08AB8]/18 to-[#C4A7FF]/14 transition group-hover:scale-125" />
                 <Icon className="relative h-7 w-7 text-[var(--gold)] transition group-hover:-translate-y-1" />
                 <h3 className="relative mt-4 font-display text-base font-bold">{group.title}</h3>
                 <p className="mt-3 text-xs font-semibold leading-6 text-[var(--muted)]">{group.shown.join(", ")}</p>

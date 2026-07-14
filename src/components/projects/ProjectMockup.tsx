@@ -10,16 +10,16 @@ export function ProjectMockup({ slug, compact = false }: { slug: ProjectSlug; co
 function Frame({ children, label, compact = false }: { children: React.ReactNode; label: string; compact?: boolean }) {
   return (
     <div className={`relative ${compact ? "text-[0.82rem]" : ""}`}>
-      <div className="absolute inset-x-12 -bottom-6 h-12 rounded-full bg-[#A95F73]/24 blur-2xl" />
-      <div className={`relative overflow-hidden rounded-t-[24px] border border-[#FFF9F3]/14 bg-[linear-gradient(145deg,rgba(255,249,243,0.11),rgba(255,249,243,0.03))] shadow-2xl shadow-[#241820]/28 ${compact ? "p-3" : "p-4"}`}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_45%_0%,rgba(197,142,157,0.17),transparent_32%),radial-gradient(circle_at_90%_20%,rgba(139,95,191,0.16),transparent_34%)]" />
-        <div className="relative mb-3 flex items-center justify-between border-b border-[#FFF9F3]/10 pb-3">
-          <div className="flex gap-2"><span className="h-2.5 w-2.5 rounded-full bg-[#D39AA8]" /><span className="h-2.5 w-2.5 rounded-full bg-[#D8BA82]" /><span className="h-2.5 w-2.5 rounded-full bg-[#9CAC91]" /></div>
-          <span className="text-xs font-bold uppercase tracking-[0.24em] text-[#D8C9D0]">{label}</span>
+      <div className="absolute inset-x-12 -bottom-6 h-12 rounded-full bg-[#D946EF]/24 blur-2xl" />
+      <div className={`relative overflow-hidden rounded-t-[24px] border border-[#FFF9FF]/14 bg-[linear-gradient(145deg,rgba(255,249,255,0.11),rgba(255,249,255,0.03))] shadow-2xl shadow-[#090611]/28 ${compact ? "p-3" : "p-4"}`}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_45%_0%,rgba(240,138,184,0.17),transparent_32%),radial-gradient(circle_at_90%_20%,rgba(124,58,237,0.16),transparent_34%)]" />
+        <div className="relative mb-3 flex items-center justify-between border-b border-[#FFF9FF]/10 pb-3">
+          <div className="flex gap-2"><span className="h-2.5 w-2.5 rounded-full bg-[#F08AB8]" /><span className="h-2.5 w-2.5 rounded-full bg-[#C4A7FF]" /><span className="h-2.5 w-2.5 rounded-full bg-[#C4A7FF]" /></div>
+          <span className="text-xs font-bold uppercase tracking-[0.24em] text-[#CFC3D8]">{label}</span>
         </div>
         <div className="relative">{children}</div>
       </div>
-      <div className="mx-auto h-3 w-[86%] rounded-b-[24px] border border-[#FFF9F3]/10 bg-[linear-gradient(180deg,rgba(255,249,243,0.18),rgba(255,249,243,0.035))]" />
+      <div className="mx-auto h-3 w-[86%] rounded-b-[24px] border border-[#FFF9FF]/10 bg-[linear-gradient(180deg,rgba(255,249,255,0.18),rgba(255,249,255,0.035))]" />
     </div>
   );
 }
@@ -28,21 +28,21 @@ function DocuMindMockup({ compact = false }: { compact?: boolean }) {
   return (
     <Frame label="Document AI" compact={compact}>
       <div className={`grid gap-3 ${compact ? "" : "md:grid-cols-[0.8fr_1.2fr]"}`}>
-        <div className="rounded-2xl bg-[#FFF9F3]/8 p-3">
-          <p className="text-xs font-bold text-[#FFF9F3]">Document Library</p>
+        <div className="rounded-2xl bg-[#FFF9FF]/8 p-3">
+          <p className="text-xs font-bold text-[#FFF9FF]">Document Library</p>
           {["policy.txt", "handbook.pdf", "guide.md"].map((doc, i) => (
             <motion.div
               key={doc}
-              className="mt-3 rounded-xl border border-[#FFF9F3]/10 bg-[#FFF9F3]/7 p-3 text-xs text-[#FFF9F3]"
+              className="mt-3 rounded-xl border border-[#FFF9FF]/10 bg-[#FFF9FF]/7 p-3 text-xs text-[#FFF9FF]"
               initial={{ opacity: 0, x: -14 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12 }}
             >
               <div className="flex justify-between"><span>{doc}</span><span>{i === 0 ? "Indexed" : "Ready"}</span></div>
-              <div className="mt-2 h-1.5 rounded-full bg-[#422D38]">
+              <div className="mt-2 h-1.5 rounded-full bg-[#2A1450]">
                 <motion.div
-                  className="h-full rounded-full bg-[#D8BA82]"
+                  className="h-full rounded-full bg-[#C4A7FF]"
                   initial={{ width: 0 }}
                   whileInView={{ width: `${86 - i * 16}%` }}
                   viewport={{ once: true }}
@@ -51,12 +51,12 @@ function DocuMindMockup({ compact = false }: { compact?: boolean }) {
               </div>
             </motion.div>
           ))}
-          <div className="mt-3 rounded-xl border border-dashed border-[#D8BA82]/35 p-4 text-center text-xs text-[#FFF9F3]">Upload panel</div>
+          <div className="mt-3 rounded-xl border border-dashed border-[#C4A7FF]/35 p-4 text-center text-xs text-[#FFF9FF]">Upload panel</div>
         </div>
         <div className={`space-y-3 ${compact ? "hidden sm:block lg:hidden xl:block" : ""}`}>
-          <div className="rounded-2xl bg-[#FFF9F3]/8 p-3">
+          <div className="rounded-2xl bg-[#FFF9FF]/8 p-3">
             <motion.div
-              className="overflow-hidden whitespace-nowrap rounded-full bg-[#241820]/80 px-4 py-3 text-xs text-[#D8C9D0]"
+              className="overflow-hidden whitespace-nowrap rounded-full bg-[#090611]/80 px-4 py-3 text-xs text-[#CFC3D8]"
               initial={{ width: "34%" }}
               whileInView={{ width: "100%" }}
               viewport={{ once: true }}
@@ -65,8 +65,8 @@ function DocuMindMockup({ compact = false }: { compact?: boolean }) {
               Ask about billing validation workflows
             </motion.div>
           </div>
-          <div className="rounded-2xl border border-[#D39AA8]/24 bg-[#D39AA8]/12 p-4">
-            <p className="text-sm font-bold text-[#FFF9F3]">AI answer with source references</p>
+          <div className="rounded-2xl border border-[#F08AB8]/24 bg-[#F08AB8]/12 p-4">
+            <p className="text-sm font-bold text-[#FFF9FF]">AI answer with source references</p>
             <div className="mt-3 space-y-2">
               {[100, 80].map((width, index) => (
                 <motion.div
@@ -80,11 +80,11 @@ function DocuMindMockup({ compact = false }: { compact?: boolean }) {
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3 text-xs text-[#FFF9F3]">
+          <div className="grid grid-cols-2 gap-3 text-xs text-[#FFF9FF]">
             {["Source A · section 2", "Source B · section 4"].map((source, index) => (
               <motion.div
                 key={source}
-                className="rounded-xl bg-[#FFF9F3]/7 p-3"
+                className="rounded-xl bg-[#FFF9FF]/7 p-3"
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -122,13 +122,13 @@ function HealthcareMockup({ compact = false }: { compact?: boolean }) {
         ))}
       </div>
       <div className="mt-3 grid gap-3 md:grid-cols-[1fr_0.9fr]">
-        <div className="rounded-2xl bg-[#FFF9F3]/7 p-4">
-          <p className="text-sm font-bold text-[#FFF9F3]">Provider messages</p>
+        <div className="rounded-2xl bg-[#FFF9FF]/7 p-4">
+          <p className="text-sm font-bold text-[#FFF9FF]">Provider messages</p>
           <div className="mt-3 space-y-2"><motion.div className="mock-line" initial={{ width: 0 }} whileInView={{ width: "83%" }} viewport={{ once: true }} /><motion.div className="mock-line opacity-60" initial={{ width: 0 }} whileInView={{ width: "66%" }} viewport={{ once: true }} transition={{ delay: 0.15 }} /></div>
         </div>
-        <div className="rounded-2xl border border-[#D39AA8]/24 bg-[#D39AA8]/12 p-4">
-          <p className="text-sm font-bold text-[#D8C9D0]">AI navigation</p>
-          <motion.p className="mt-3 text-xs text-[#D8C9D0]" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 }}>Guided response flows for appointments, billing, medications, and results.</motion.p>
+        <div className="rounded-2xl border border-[#F08AB8]/24 bg-[#F08AB8]/12 p-4">
+          <p className="text-sm font-bold text-[#CFC3D8]">AI navigation</p>
+          <motion.p className="mt-3 text-xs text-[#CFC3D8]" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 }}>Guided response flows for appointments, billing, medications, and results.</motion.p>
         </div>
       </div>
     </Frame>
@@ -143,18 +143,18 @@ function ResponsibleAIMockup({ compact = false }: { compact?: boolean }) {
         <Panel title="ROC AUC" value="0.90" />
         <Panel title="Records" value="48,842" />
       </div>
-      <div className="mt-4 rounded-2xl bg-[#FFF9F3]/7 p-4">
-        <div className="mb-4 flex items-center justify-between text-xs text-[#D8C9D0]"><span>Fairness comparison</span><span>Before / After</span></div>
+      <div className="mt-4 rounded-2xl bg-[#FFF9FF]/7 p-4">
+        <div className="mb-4 flex items-center justify-between text-xs text-[#CFC3D8]"><span>Fairness comparison</span><span>Before / After</span></div>
         {[
           ["Bias before mitigation", "72%"],
           ["Bias after mitigation", "88%"],
           ["Accuracy maintained", "82%"],
         ].map(([label, width], index) => (
           <div key={label} className="mb-4">
-            <div className="mb-2 flex justify-between text-xs text-[#D8C9D0]"><span>{label}</span><span>{width}</span></div>
-              <div className="h-2 rounded-full bg-[#422D38]">
+            <div className="mb-2 flex justify-between text-xs text-[#CFC3D8]"><span>{label}</span><span>{width}</span></div>
+              <div className="h-2 rounded-full bg-[#2A1450]">
                 <motion.div
-                  className={`h-full rounded-full ${index === 0 ? "bg-[#A95F73]" : "bg-[#D8BA82]"}`}
+                  className={`h-full rounded-full ${index === 0 ? "bg-[#D946EF]" : "bg-[#C4A7FF]"}`}
                   initial={{ width: 0 }}
                   whileInView={{ width }}
                   viewport={{ once: true }}
@@ -170,9 +170,9 @@ function ResponsibleAIMockup({ compact = false }: { compact?: boolean }) {
 
 function Panel({ title, value, accent }: { title: string; value: string; accent?: boolean }) {
   return (
-    <div className={`rounded-2xl border p-4 ${accent ? "border-[#D39AA8]/24 bg-[#D39AA8]/12" : "border-[#FFF9F3]/10 bg-[#FFF9F3]/7"}`}>
-      <p className="text-xs text-[#D8C9D0]">{title}</p>
-      <p className="mt-2 font-display text-lg font-bold text-[#FFF9F3]">{value}</p>
+    <div className={`rounded-2xl border p-4 ${accent ? "border-[#F08AB8]/24 bg-[#F08AB8]/12" : "border-[#FFF9FF]/10 bg-[#FFF9FF]/7"}`}>
+      <p className="text-xs text-[#CFC3D8]">{title}</p>
+      <p className="mt-2 font-display text-lg font-bold text-[#FFF9FF]">{value}</p>
     </div>
   );
 }

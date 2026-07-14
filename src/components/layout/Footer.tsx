@@ -10,15 +10,15 @@ export function Footer() {
           <p>Software Engineer</p>
         </div>
         <div className="flex flex-wrap items-center gap-4">
-          <a className="inline-flex items-center gap-2 hover:text-[#D8BA82]" href={`mailto:${email}`}>
+          <a className="inline-flex items-center gap-2 hover:text-[#C4A7FF]" href={`mailto:${email}`}>
             <Mail className="h-4 w-4" />
             Email
           </a>
-          {socialLinks.linkedin ? <a className="hover:text-[#D8BA82]" href={socialLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn</a> : null}
-          {socialLinks.github ? <a className="hover:text-[#D8BA82]" href={socialLinks.github} target="_blank" rel="noreferrer">GitHub</a> : null}
+          {socialLinks.linkedin ? <a className="hover:text-[#C4A7FF]" href={socialLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn</a> : null}
+          {socialLinks.github ? <a className="hover:text-[#C4A7FF]" href={socialLinks.github} target="_blank" rel="noreferrer">GitHub</a> : null}
           <button
             type="button"
-            className="inline-flex items-center gap-2 hover:text-[#D8BA82]"
+            className="inline-flex items-center gap-2 hover:text-[#C4A7FF]"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <ArrowUp className="h-4 w-4" />

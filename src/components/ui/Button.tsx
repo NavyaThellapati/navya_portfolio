@@ -20,9 +20,9 @@ export function ButtonLink({
       whileTap={{ y: 0 }}
       className={clsx(
         "inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition",
-        variant === "primary" && "bg-gradient-to-r from-[#A95F73] via-[#D39AA8] to-[#D8BA82] text-[#241820] shadow-lg shadow-[#130D12]/25 hover:brightness-110",
-        variant === "secondary" && "border border-[#FFF9F3]/20 bg-[#30212B]/80 text-[#FFF9F3] backdrop-blur hover:border-[#D8BA82]/70",
-        variant === "ghost" && "text-[#FFF9F3] hover:text-[#D39AA8]",
+        variant === "primary" && "bg-gradient-to-r from-[#D946EF] via-[#F08AB8] to-[#C4A7FF] text-[#090611] shadow-lg shadow-[#090611]/25 hover:brightness-110",
+        variant === "secondary" && "border border-[#FFF9FF]/20 bg-[#130A20]/80 text-[#FFF9FF] backdrop-blur hover:border-[#C4A7FF]/70",
+        variant === "ghost" && "text-[#FFF9FF] hover:text-[#F08AB8]",
         className,
       )}
       {...props}
