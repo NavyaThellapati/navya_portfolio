@@ -36,10 +36,10 @@ export function HeroSection() {
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/16 bg-white/8 px-4 py-2 text-sm font-semibold text-slate-100 shadow-2xl shadow-[#6E426F]/20 backdrop-blur"
+            className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#FAF8F4]/16 bg-[#FAF8F4]/8 px-4 py-2 text-sm font-semibold text-[#FAF8F4] shadow-2xl shadow-[#6E426F]/20 backdrop-blur"
           >
-            <span className="h-2 w-2 rounded-full bg-emerald-300/80" />
-            Open to Software Engineering Opportunities
+            <span className="h-2 w-2 rounded-full bg-[#8FA58C]" />
+            Available for software engineering opportunities
           </motion.div>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 22 }}
@@ -47,7 +47,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.08 }}
             className="font-display text-5xl font-extrabold leading-[0.98] text-[var(--text)] sm:text-7xl lg:text-8xl"
           >
-            Hi, I’m <span className="gradient-text">Navya.</span>
+            Navya <span className="gradient-text">Thellapati</span>
           </motion.h1>
           <motion.p
             key={roles[roleIndex]}
@@ -61,16 +61,16 @@ export function HeroSection() {
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.18 }}
-            className="mt-8 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-5xl"
+            className="mt-8 max-w-2xl font-display text-3xl font-bold leading-tight text-[#FAF8F4] sm:text-5xl"
           >
-            I build software that works beautifully.
+            Turning complex workflows into dependable software.
           </motion.p>
-          <p className="mt-6 max-w-xl text-xl leading-8 text-slate-200">
-            Backend systems, AI applications, and full-stack products designed to solve real problems.
+          <p className="mt-6 max-w-xl text-xl leading-8 text-[#D2CBD7]">
+            From enterprise automation to AI-powered experiences, crafted for scale, reliability, and real users.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-4 text-sm font-semibold text-[var(--muted)]">
             <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-[#C9A86A]" />{location}</span>
-            <a className="hover:text-white" href={`mailto:${email}`}>{email}</a>
+            <a className="hover:text-[#FAF8F4]" href={`mailto:${email}`}>{email}</a>
           </div>
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 18 }}

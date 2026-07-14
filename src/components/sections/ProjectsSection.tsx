@@ -33,20 +33,20 @@ export function ProjectsSection() {
   return (
     <AnimatedSection id="work" className="dark-surface relative overflow-hidden bg-[radial-gradient(circle_at_52%_0%,rgba(110,66,111,0.28),transparent_32%),linear-gradient(180deg,#17151C,#211C29_45%,#17151C)] py-28">
       <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden="true" />
-      <div className="orb left-1/4 top-60 h-96 w-96 bg-purple-500/18" aria-hidden="true" />
+      <div className="orb left-1/4 top-60 h-96 w-96 bg-[#6E426F]/22" aria-hidden="true" />
       <div className="orb right-0 top-[38%] h-96 w-96 bg-[#8A4F62]/22" aria-hidden="true" />
       <div className="section-shell relative">
         <SectionHeading
           eyebrow="Selected Work"
-          title="Selected projects, built like products."
-          body="Concise snapshots of the systems behind Navya’s AI, healthcare, and responsible machine-learning work."
+          title="Product stories with engineering underneath."
+          body="Three launches across document intelligence, healthcare workflows, and responsible machine learning."
           align="center"
         />
         <div className="mt-20 space-y-24">
           {homeProjects.map((project, index) => (
             <motion.article
               key={project.slug}
-              className="grid items-center gap-10 border-t border-white/10 pt-14 lg:grid-cols-2"
+              className="grid items-center gap-10 border-t border-[#FAF8F4]/10 pt-14 lg:grid-cols-2"
               initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.22 }}
@@ -60,13 +60,13 @@ export function ProjectsSection() {
                 <ProjectMockup slug={project.slug} />
               </motion.div>
               <div>
-                <p className="mb-4 text-sm font-bold uppercase tracking-[0.28em] text-slate-400">Case Study 0{index + 1}</p>
+                <p className="mb-4 text-sm font-bold uppercase tracking-[0.28em] text-[#D2CBD7]">Case Study 0{index + 1}</p>
                 <h3 className="font-display text-4xl font-extrabold leading-tight text-[var(--text)] sm:text-5xl">{project.title}</h3>
                 <p className="mt-3 font-display text-xl font-bold text-[#F6D8DF]">{project.subtitle}</p>
                 <p className="mt-5 max-w-xl text-lg leading-8 text-[var(--muted)]">{project.description}</p>
                 <div className="mt-8 grid gap-5 sm:grid-cols-3">
                   {project.metrics.map((metric) => (
-                    <div key={metric} className="border-l border-white/14 pl-4">
+                    <div key={metric} className="border-l border-[#FAF8F4]/14 pl-4">
                       <p className="text-sm font-bold text-[#FAF8F4]">{metric}</p>
                     </div>
                   ))}

@@ -67,7 +67,7 @@ export function SkillsSection() {
             return (
               <motion.article
                 key={group.title}
-                className="group relative overflow-hidden rounded-[28px] border border-[var(--line)] bg-white/76 p-6 shadow-xl shadow-[#6E426F]/5 transition hover:-translate-y-1 hover:bg-white hover:shadow-2xl hover:shadow-[#6E426F]/10"
+                className="group relative overflow-hidden rounded-[28px] border border-[var(--line)] bg-[#FAF7F2]/82 p-6 shadow-xl shadow-[#6E426F]/5 transition hover:-translate-y-1 hover:bg-[#FAF7F2] hover:shadow-2xl hover:shadow-[#6E426F]/10"
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

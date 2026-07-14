@@ -16,7 +16,7 @@ export function ExperienceSection() {
 
   return (
     <AnimatedSection id="experience" className="light-neutral relative overflow-hidden py-28">
-      <SectionBackground variant="blueprint" />
+      <SectionBackground variant="timeline" />
       <div className="section-shell relative grid gap-12 lg:grid-cols-[0.78fr_1.22fr]">
         <div className="lg:sticky lg:top-28 lg:h-fit">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[var(--purple)]">Experience</p>
@@ -48,7 +48,7 @@ export function ExperienceSection() {
                   <div className="absolute left-0 top-0 grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] bg-[var(--bg-soft)]">
                     <Icon className="h-5 w-5 text-[var(--purple)]" />
                   </div>
-                  <div className="rounded-[26px] border border-[var(--line)] bg-white/78 p-5 shadow-xl shadow-[#6E426F]/5">
+                  <div className="rounded-[26px] border border-[var(--line)] bg-[#FAF7F2]/82 p-5 shadow-xl shadow-[#6E426F]/5">
                     <p className="text-sm font-bold text-[var(--muted)]">Impact 0{index + 1}</p>
                     <h4 className="mt-2 font-display text-2xl font-bold text-[var(--text)]">{milestone}</h4>
                   </div>
@@ -70,7 +70,7 @@ export function ExperienceSection() {
           >
             <div className="mt-6 grid gap-4">
               {experienceGroups.map((group) => (
-                <div key={group.title} className="rounded-3xl border border-[var(--line)] bg-white/70 p-5">
+                <div key={group.title} className="rounded-3xl border border-[var(--line)] bg-[#FAF7F2]/78 p-5">
                   <h4 className="font-display text-xl font-bold">{group.title}</h4>
                   <ul className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)]">
                     {group.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}

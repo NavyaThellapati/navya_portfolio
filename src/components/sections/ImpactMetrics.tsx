@@ -27,7 +27,7 @@ function CountUp({ value, suffix }: { value: number; suffix: string }) {
 export function ImpactMetrics() {
   return (
     <section className="relative z-10 bg-[#17151C] pb-10">
-      <div className="section-shell grid grid-cols-2 gap-3 overflow-hidden rounded-[30px] border border-white/12 bg-[#211C29] p-3 shadow-2xl shadow-[#17151C]/40 lg:grid-cols-4">
+      <div className="section-shell grid grid-cols-2 gap-3 overflow-hidden rounded-[30px] border border-[#FAF8F4]/12 bg-[#211C29] p-3 shadow-2xl shadow-[#17151C]/40 lg:grid-cols-4">
         {metrics.map((metric, index) => (
           <motion.div
             key={metric.label}

@@ -8,25 +8,25 @@ export function AboutSection() {
   return (
     <AnimatedSection id="about" className="light-lavender relative overflow-hidden py-28">
       <SectionBackground variant="light" />
-      <div className="absolute left-10 top-16 h-20 w-20 rounded-full bg-rose-200/25" aria-hidden="true" />
+      <div className="absolute left-10 top-16 h-20 w-20 rounded-full bg-[#C58E9D]/25" aria-hidden="true" />
       <div className="section-shell relative">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr]">
           <SectionHeading
             eyebrow="About"
-            title="I turn complex workflows into simple software."
+            title="Workflow complexity, shaped into calm product systems."
           />
           <div className="space-y-6 text-lg leading-8 text-[var(--muted)]">
             <p>
-              I’m a Software Engineer focused on backend systems, intelligent applications, and practical digital products.
+              Backend platforms, intelligent applications, and practical product surfaces form the center of Navya’s engineering work.
             </p>
             <p>
-              At Accenture, I worked on enterprise financial workflows involving APIs, automation, validation, billing,
+              At Accenture, she worked on enterprise financial workflows involving APIs, automation, validation, billing,
               payments, and data processing.
             </p>
             <p>
-              Today, I enjoy building products that combine reliable engineering with thoughtful user experiences.
+              The throughline is durable software: systems that reduce manual effort, clarify data, and support real teams.
             </p>
-            <ButtonLink href={resumeUrl} download variant="secondary" className="!border-slate-200 !bg-white !text-slate-950">
+            <ButtonLink href={resumeUrl} download variant="secondary" className="!border-[#D8CFC6] !bg-[#FAF7F2] !text-[#211D24]">
               Download Resume
             </ButtonLink>
           </div>

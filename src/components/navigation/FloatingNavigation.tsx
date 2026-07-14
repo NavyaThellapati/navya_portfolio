@@ -79,7 +79,7 @@ export function FloatingNavigation() {
                     ? "bg-[#6E426F]/18 text-[#F6D8DF]"
                     : scrolled
                       ? "text-[var(--muted)] hover:text-[var(--text)]"
-                      : "text-white/72 hover:text-white"
+                      : "text-[#FAF8F4]/72 hover:text-[#FAF8F4]"
                 }`}
               >
                 {item.label}
@@ -92,7 +92,7 @@ export function FloatingNavigation() {
           <a
             href={resumeUrl}
             download
-            className="rounded-full bg-gradient-to-r from-[#6E426F] to-[#8A4F62] px-4 py-2 text-sm font-bold text-white shadow-lg shadow-[#6E426F]/25 transition hover:-translate-y-0.5 hover:brightness-110"
+            className="rounded-full bg-gradient-to-r from-[#6E426F] to-[#8A4F62] px-4 py-2 text-sm font-bold text-[#FAF8F4] shadow-lg shadow-[#6E426F]/25 transition hover:-translate-y-0.5 hover:brightness-110"
           >
             Resume
           </a>
@@ -152,7 +152,7 @@ export function FloatingNavigation() {
               <a
                 href={resumeUrl}
                 download
-                className="rounded-full bg-gradient-to-r from-[#6E426F] to-[#8A4F62] px-5 py-4 text-center text-sm font-bold text-white"
+                className="rounded-full bg-gradient-to-r from-[#6E426F] to-[#8A4F62] px-5 py-4 text-center text-sm font-bold text-[#FAF8F4]"
               >
                 Download Resume
               </a>
