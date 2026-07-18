@@ -3,7 +3,7 @@ import { email, socialLinks } from "../../data/portfolioData";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--line)] bg-[var(--bg)] py-8">
+    <footer className="border-t border-[var(--line)] bg-transparent py-8">
       <div className="section-shell flex flex-col gap-5 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-display text-lg font-bold text-[var(--text)]">Navya Thellapati</p>

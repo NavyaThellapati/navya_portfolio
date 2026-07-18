@@ -6,7 +6,7 @@ import { SectionHeading } from "../ui/SectionHeading";
 
 export function AboutSection() {
   return (
-    <AnimatedSection id="about" className="relative overflow-hidden bg-[var(--bg)] py-24">
+    <AnimatedSection id="about" className="living-section relative overflow-hidden py-24">
       <SectionBackground variant="light" />
       <div className="absolute left-10 top-16 h-20 w-20 rounded-full bg-[#F08AB8]/25" aria-hidden="true" />
       <div className="section-shell relative">
@@ -36,7 +36,7 @@ export function AboutSection() {
             return (
               <article
                 key={area.title}
-                className="group relative min-h-64 overflow-hidden rounded-[28px] border border-[var(--line)] bg-[var(--surface)] p-6 transition hover:-translate-y-1 hover:bg-[var(--surface-strong)]"
+                className="premium-card tilt-card group relative min-h-64 rounded-[28px] p-6"
               >
                 <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#F08AB8]/12 transition group-hover:scale-125" />
                 <p className="mb-7 text-sm font-bold text-[var(--muted-soft)]">0{index + 1}</p>

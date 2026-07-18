@@ -29,8 +29,8 @@ export function ImpactMetrics() {
   const icons = [Rocket, Code2, Database, TrendingUp];
 
   return (
-    <section className="relative z-10 bg-[var(--bg)] pb-8">
-      <div className="section-shell grid grid-cols-2 gap-0 overflow-hidden rounded-[18px] border border-[#F08AB8]/28 bg-[#130A20]/70 p-2 shadow-[0_0_44px_rgba(217,70,239,0.12)] backdrop-blur-xl lg:grid-cols-4">
+    <section className="relative z-10 bg-transparent pb-8">
+      <div className="section-shell premium-card grid grid-cols-2 gap-0 rounded-[18px] p-2 lg:grid-cols-4">
         {metrics.map((metric, index) => (
           <motion.div
             key={metric.label}

@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { FloatingNavigation } from "./components/navigation/FloatingNavigation";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
 import { Footer } from "./components/layout/Footer";
+import { CustomCursor } from "./components/ui/CustomCursor";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const DocuMindPage = lazy(() => import("./pages/DocuMindPage"));
@@ -38,6 +39,7 @@ export default function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <CustomCursor />
     </>
   );
 }

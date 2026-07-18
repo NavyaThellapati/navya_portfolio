@@ -90,8 +90,8 @@ export function FloatingNavigation() {
         aria-label="Primary navigation"
         className={`mx-auto flex max-w-[1180px] items-center justify-between rounded-full border px-4 transition-all duration-300 ${
           scrolled
-            ? "h-16 border-[var(--line)] bg-[var(--surface)] shadow-2xl shadow-[#090611]/20 backdrop-blur-2xl"
-            : "h-18 border-transparent bg-transparent"
+            ? "h-14 scale-[0.985] border-[#FFF9FF]/14 bg-[#1A0D24]/68 shadow-2xl shadow-[#090611]/24 backdrop-blur-2xl"
+            : "h-18 border-[#FFF9FF]/8 bg-[#120818]/18 backdrop-blur-sm"
         }`}
       >
         <Link to="/#home" className="flex items-center gap-3" aria-label="Navya Thellapati home">
@@ -110,7 +110,7 @@ export function FloatingNavigation() {
                 onClick={(event) => handleNavClick(event, item.id)}
                 className={`relative rounded-full px-3 py-2 text-sm font-semibold transition ${
                   active === item.id && location.pathname === "/"
-                    ? "text-[#FFF9FF] after:absolute after:inset-x-4 after:-bottom-1 after:h-px after:bg-[#F08AB8] after:shadow-[0_0_10px_rgba(217,70,239,0.9)]"
+                    ? "text-[#FFF9FF] after:absolute after:inset-x-4 after:-bottom-1 after:h-px after:origin-left after:scale-x-100 after:bg-gradient-to-r after:from-[#7C3AED] after:via-[#F08AB8] after:to-[#C4A7FF] after:shadow-[0_0_12px_rgba(217,70,239,0.9)]"
                     : scrolled
                       ? "text-[var(--muted)] hover:text-[var(--text)]"
                       : "text-[#FFF9FF]/72 hover:text-[#FFF9FF]"
@@ -131,7 +131,7 @@ export function FloatingNavigation() {
           <a
             href={resumeUrl}
             download
-            className="rounded-full bg-gradient-to-r from-[#D946EF] to-[#F08AB8] px-4 py-2 text-sm font-bold text-[#FFF9FF] shadow-lg shadow-[#D946EF]/25 transition hover:-translate-y-0.5 hover:brightness-110"
+            className="magnetic relative rounded-full bg-gradient-to-r from-[#D946EF] to-[#F08AB8] px-4 py-2 text-sm font-bold text-[#FFF9FF] shadow-lg shadow-[#D946EF]/25 transition hover:-translate-y-0.5 hover:brightness-110"
           >
             Resume
           </a>

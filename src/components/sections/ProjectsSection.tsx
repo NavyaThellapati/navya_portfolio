@@ -43,18 +43,31 @@ const projects: Array<{
 
 export function ProjectsSection() {
   const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const reduce = useReducedMotion();
   const project = projects[active];
 
-  const goTo = (index: number) => setActive((index + projects.length) % projects.length);
-  const next = () => goTo(active + 1);
-  const previous = () => goTo(active - 1);
+  const goTo = (index: number) => {
+    setDirection(index > active || (active === projects.length - 1 && index === 0) ? 1 : -1);
+    setActive((index + projects.length) % projects.length);
+  };
+  const next = () => {
+    setDirection(1);
+    setActive((index) => (index + 1) % projects.length);
+  };
+  const previous = () => {
+    setDirection(-1);
+    setActive((index) => (index - 1 + projects.length) % projects.length);
+  };
 
   useEffect(() => {
     if (reduce || paused || document.hidden) return;
-    const timer = window.setInterval(() => setActive((index) => (index + 1) % projects.length), 7000);
+    const timer = window.setInterval(() => {
+      setDirection(1);
+      setActive((index) => (index + 1) % projects.length);
+    }, 7800);
     return () => window.clearInterval(timer);
   }, [paused, reduce]);
 
@@ -66,7 +79,7 @@ export function ProjectsSection() {
   return (
     <AnimatedSection
       id="work"
-      className="relative overflow-hidden bg-transparent py-16"
+      className="living-section relative overflow-hidden py-16"
     >
       <motion.div
         className="absolute inset-x-0 top-8 h-80 blur-3xl"
@@ -79,8 +92,8 @@ export function ProjectsSection() {
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <SectionHeading
             eyebrow="Projects"
-            title="Compact Project Showcase"
-            body="Selected work across backend, full-stack, and AI development."
+            title="Live Product Stories"
+            body="Each project behaves like a working system, showing the engineering decisions behind the interface."
           />
           <div className="hidden gap-2 md:flex">
             {projects.map((item, index) => (
@@ -104,7 +117,7 @@ export function ProjectsSection() {
         </div>
 
         <div
-          className="mt-8 overflow-hidden rounded-[26px] border border-[#F08AB8]/24 bg-[#130A20]/72 p-4 shadow-[0_0_48px_rgba(124,58,237,0.12)] backdrop-blur-xl md:p-6"
+          className="premium-card mt-8 rounded-[30px] p-4 md:p-6"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onTouchStart={(event) => setTouchStart(event.touches[0]?.clientX ?? null)}
@@ -134,17 +147,19 @@ export function ProjectsSection() {
           tabIndex={0}
           aria-label="Project showcase. Use left and right arrow keys to switch projects."
         >
-          <div className="grid min-h-[520px] gap-6 lg:grid-cols-[0.76fr_1.24fr] lg:items-center">
+          <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_12%_12%,rgba(240,138,184,0.18),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(124,58,237,0.18),transparent_26%)]" aria-hidden="true" />
+          <div className="relative grid min-h-[560px] gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={project.slug}
-                initial={{ opacity: 0, x: -24 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.38, ease: "easeOut" }}
+                initial={reduce ? false : { opacity: 0, x: direction * -34, rotateY: direction * -12, filter: "blur(10px)" }}
+                animate={reduce ? undefined : { opacity: 1, x: 0, rotateY: 0, filter: "blur(0px)" }}
+                exit={reduce ? undefined : { opacity: 0, x: direction * 34, rotateY: direction * 12, filter: "blur(10px)" }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 className="relative z-10"
+                style={{ transformPerspective: 1000 }}
               >
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#C4A7FF]">Project 0{active + 1}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#C4A7FF]">Live System 0{active + 1}</p>
                 <h3 className="mt-4 font-display text-[clamp(1.8rem,3vw,2.6rem)] font-extrabold leading-tight text-[#FFF9FF]">{project.title}</h3>
                 <p className="mt-3 text-base font-bold text-[#F08AB8]">{project.subtitle}</p>
                 <p className="mt-4 max-w-lg text-sm leading-7 text-[#CFC3D8]">{project.description}</p>
@@ -163,7 +178,7 @@ export function ProjectsSection() {
                 <div className="mt-7 flex flex-wrap gap-3">
                   <Link
                     to={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#D946EF] px-5 py-3 text-sm font-bold text-[#FFF9FF] shadow-[0_0_26px_rgba(217,70,239,0.24)] transition hover:-translate-y-0.5"
+                    className="magnetic inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#7C3AED] via-[#D946EF] to-[#F08AB8] px-5 py-3 text-sm font-bold text-[#FFF9FF] shadow-[0_0_26px_rgba(217,70,239,0.24)] transition hover:-translate-y-0.5"
                   >
                     View Project <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -175,10 +190,10 @@ export function ProjectsSection() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`${project.slug}-mockup`}
-                  initial={{ opacity: 0, scale: 0.96, x: 30 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 0.96, x: -24 }}
-                  transition={{ duration: 0.42, ease: "easeOut" }}
+                  initial={reduce ? false : { opacity: 0, scale: 0.9, x: direction * 80, rotateZ: direction * 2, filter: "blur(14px)" }}
+                  animate={reduce ? undefined : { opacity: 1, scale: 1, x: 0, rotateZ: 0, filter: "blur(0px)" }}
+                  exit={reduce ? undefined : { opacity: 0, scale: 0.92, x: direction * -80, rotateZ: direction * -2, filter: "blur(14px)" }}
+                  transition={{ duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <ProjectMockup slug={project.slug} />
                 </motion.div>
@@ -186,7 +201,7 @@ export function ProjectsSection() {
             </div>
           </div>
 
-          <div className="mt-6 flex items-center justify-between gap-4">
+          <div className="relative mt-6 flex items-center justify-between gap-4">
             <button type="button" onClick={() => { setPaused(true); previous(); }} className="grid h-11 w-11 place-items-center rounded-full border border-[#FFF9FF]/14 bg-[#090611]/50 text-[#FFF9FF] transition hover:border-[#F08AB8]/55" aria-label="Previous project">
               <ArrowLeft className="h-4 w-4" />
             </button>
